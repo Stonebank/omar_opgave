@@ -3,6 +3,8 @@ import movie.Comedy;
 import movie.DVD;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Controller {
@@ -18,6 +20,7 @@ public class Controller {
         printMenu(false);
 
         movie.add(new Action("Bad Boys 2", "Action Comedy", "2 hours and 10 minutes", new String[] { "Will Smith" }));
+        movie.add(new Action("Aladin Boys 2", "Action Comedy", "2 hours and 10 minutes", new String[] { "Will Smith" }));
         movie.add(new Comedy("The hangover", "1 hour and 35 minutes", new String[] { "Ken Jeong", "Bradley Cooper", "Ed Helms" }, "Comedy"));
 
     }
@@ -28,7 +31,7 @@ public class Controller {
                 // TODO
                 break;
             case "2":
-                // TODO
+                sortList();
                 break;
             case "3":
                 // TODO
@@ -55,6 +58,13 @@ public class Controller {
         System.out.println("Press 3 to list all films of a subgenre");
         System.out.println("Press 4 to delete a film");
         System.out.println("Press 5 to search for a film by title");
+    }
+
+    private void sortList() {
+        movie.sort((o1, o2) -> o1.title().compareToIgnoreCase(o2.title()));
+        movie.forEach(movie -> System.out.println(movie.title()));
+        System.out.println("---The movies has been sorted alphabetically---");
+        printMenu(false);
     }
 
     private void search(String title) {
