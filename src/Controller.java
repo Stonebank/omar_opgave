@@ -59,6 +59,7 @@ public class Controller {
                 saveMovies();
                 break;
             case "exit":
+                scanner.close();
                 System.exit(0);
                 break;
             default:
