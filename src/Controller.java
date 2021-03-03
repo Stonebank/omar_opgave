@@ -198,11 +198,14 @@ public class Controller {
     }
 
     private void search(String title) {
+        int result = 0;
         for (DVD dvd : movie) {
             if (!dvd.title().toLowerCase().contains(title))
                 continue;
             System.out.println("Movie found: " + dvd.title());
+            result++;
         }
+        System.out.println("Found " + result + " title(s) matching your keywords");
         printMenu(false);
     }
 
