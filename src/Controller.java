@@ -2,10 +2,7 @@ import movie.Action;
 import movie.Comedy;
 import movie.DVD;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Controller {
 
@@ -19,16 +16,13 @@ public class Controller {
         System.out.println("--- MENU ---");
         printMenu(false);
 
-        movie.add(new Action("Bad Boys 2", "Action Comedy", "2 hours and 10 minutes", new String[] { "Will Smith" }));
-        movie.add(new Action("Aladin Boys 2", "Action Comedy", "2 hours and 10 minutes", new String[] { "Will Smith" }));
-        movie.add(new Comedy("The hangover", "1 hour and 35 minutes", new String[] { "Ken Jeong", "Bradley Cooper", "Ed Helms" }, "Comedy"));
-
     }
 
     public void handleInput(String option) {
         switch (option) {
             case "1":
-                // TODO
+                System.out.println("What type would you like to create? Choose between 'Action', 'War' and 'Comedy");
+                createFilm(scanner.nextLine().toLowerCase());
                 break;
             case "2":
                 sortList();
@@ -43,6 +37,9 @@ public class Controller {
                 System.out.println("Enter the name of the film you want to search:");
                 search(scanner.nextLine().toLowerCase());
                 break;
+            case "exit":
+                System.exit(0);
+                break;
             default:
                printMenu(true);
         }
@@ -51,13 +48,43 @@ public class Controller {
     private void printMenu(boolean errorMessage) {
 
         if (errorMessage)
-            System.err.println("Could not register output");
+            System.err.println("Could not register input");
 
         System.out.println("Press 1 to create a film");
         System.out.println("Press 2 to list all films alphabetically");
         System.out.println("Press 3 to list all films of a subgenre");
         System.out.println("Press 4 to delete a film");
         System.out.println("Press 5 to search for a film by title");
+        System.out.println("Type 'exit' to close the menu and exit the program.");
+    }
+
+
+    private void createFilm(String input) {
+        switch (input) {
+            case "action":
+                System.out.println(movie.size());
+
+                System.out.println("Enter title of the movie:");
+                String title = scanner.nextLine();
+
+                System.out.println("Enter subgenre:");
+                String subgenre = scanner.nextLine();
+
+                System.out.println("Enter the duration:");
+                String duration = scanner.nextLine();
+
+                System.out.println("Enter the main characters (use comma if there are more);");
+                String[] mainCharacters = scanner.nextLine().split(",");
+
+                movie.add(new Action(title, subgenre, duration, mainCharacters));
+                break;
+            case "war":
+                break;
+            case "comedy":
+                break;
+            default:
+                printMenu(true);
+        }
     }
 
     private void sortList() {
