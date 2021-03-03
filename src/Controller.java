@@ -21,12 +21,6 @@ public class Controller {
 
         loadMovies();
 
-        // Adding some default movies
-        /*movie.add(new Action("Bad Boys II", "Comedy action", "2 hours 27 minutes", new String[] { "Will Smith", "Michael Eugene" }));
-        movie.add(new Action("Escape Plan", "Action thriller", "1 hour 56 minutes", new String[] { "Sylvester Stallone", "Curtis Jackson (50 cent)", "Arnold Schwarzenegger" }));
-        movie.add(new War("The Hurt Locker", "2 hours 11 minutes", new String[] { "William James" }, "2001", new String[] { "USA", "Iraq" }));
-        movie.add(new Comedy("The hangover part 2", "1 hour 42 minutes", new String[] { "name 1", "name 2", "name 3" }, "Comedy/Action/Drink"));*/
-
         System.out.println("--- MENU ---");
         printMenu(false);
 
@@ -313,7 +307,7 @@ public class Controller {
                         movie.add(new Action(parameter[1], parameter[2], parameter[3], new String[] { parameter[4] }));
                         break;
                     case "war":
-                        movie.add(new War(parameter[1], parameter[2], new String[] { parameter[3] }, parameter[4], new String[] { parameter[4] }));
+                        movie.add(new War(parameter[1], parameter[2], new String[] { parameter[3] }, parameter[4], new String[] { parameter[5] }));
                         break;
                     case "comedy":
                         movie.add(new Comedy(parameter[1], parameter[2], new String[] { parameter[3] }, parameter[4]));
