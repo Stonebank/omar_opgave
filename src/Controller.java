@@ -62,8 +62,6 @@ public class Controller {
     private void createFilm(String input) {
         switch (input) {
             case "action":
-                System.out.println(movie.size());
-
                 System.out.println("Enter title of the movie:");
                 String title = scanner.nextLine();
 
