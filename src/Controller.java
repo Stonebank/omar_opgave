@@ -186,7 +186,7 @@ public class Controller {
         }
 
         for (int i = 0; i < movie.size(); i++) {
-            if (!movie.get(i).title().toLowerCase().contains(title))
+            if (!movie.get(i).title().equalsIgnoreCase(title))
                 continue;
             System.out.println("Successfully removed the movie title: " + movie.get(i).title());
             movie.remove(i);
